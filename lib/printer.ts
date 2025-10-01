@@ -107,7 +107,7 @@ export class WebUSBPrinter {
         // Ignore if not supported
       }
 
-      const result = await this.device.transferOut(endpoint.endpointNumber, data);
+      const result = await this.device.transferOut(endpoint.endpointNumber, data.buffer);
 
       if (result.status === 'ok') {
         return { success: true, bytesWritten: result.bytesWritten };
